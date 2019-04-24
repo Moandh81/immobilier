@@ -34,3 +34,7 @@ Route::get('delete_bien/{id}', 'BiensController@getDeleteBien')->name('getDelete
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/test_upload_photos', 'PhotosController@getForm')->name('getUploadForm');
+Route::post('/test_upload_photos', 'PhotosController@postForm')->name('postUploadForm');
