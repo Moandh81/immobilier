@@ -1,6 +1,9 @@
 jQuery(document).ready(function($) {
 
 
+
+
+
 // Au chargement de la vue update_bien si la valeur est Terrain
 // on applique les conditions ci dessous
 

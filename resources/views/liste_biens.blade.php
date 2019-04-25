@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'ajouter un bien')
+@section('title', 'Liste Des Biens')
 
 @section('content')
 
@@ -19,7 +19,7 @@
 
 
   @if(Session::has('success'))
-  <p class="alert alert-info">{{ Session::get('success') }}</p>
+  <p class="alert alert-info alert-dismissible">{{ Session::get('success') }}</p>
   @endif
 
   <div class="row">

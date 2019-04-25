@@ -18,7 +18,7 @@
 
   <div class="row">
 
-    <form class="w-50 mx-auto" method="post" action='{{route('postForm')}}'>
+    <form class="w-50 mx-auto" method="post" action='{{route('postForm')}}' enctype='multipart/form-data'>
 
 @csrf
 
@@ -90,6 +90,12 @@
 <div class="form-group">
    <label for="description">Description</label>
    <textarea class="form-control" name="description"  rows="3"></textarea>
+ </div>
+
+
+ <div class="form-group">
+   <label for="photos[]">Example file input</label>
+   <input type="file" class="form-control-file" id="exampleFormControlFile1" name='photos[]' multiple >
  </div>
 
 

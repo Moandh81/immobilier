@@ -40,6 +40,22 @@ class BiensController extends Controller
 
       $bien->save();
 
+
+      $bien_id = $bien->id ;
+      if($request->hasfile('photos'))
+              {
+
+      for($i = 0 ; $i < count($request->file('photos')) ; $i ++ ) {
+      $path = $request->file('photos')[$i]->store('photos');
+      $photo = DB::table('photos')->insert([
+        'bien_id' => $bien_id ,
+        'path' => $path
+      ]);
+
+
+}
+      }
+
       return redirect()->route('getListeBiens')->with('success', 'L\'ajout a été effectué avec succès');
 
 
