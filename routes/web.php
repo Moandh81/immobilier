@@ -38,3 +38,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/test_upload_photos', 'PhotosController@getForm')->name('getUploadForm');
 Route::post('/test_upload_photos', 'PhotosController@postForm')->name('postUploadForm');
+
+
+Route::get('/contact', 'ContactFormController@getForm')->name('getContactForm');
+Route::post('/contact', 'ContactFormController@postForm')->name('postContactForm');
+
+
+Route::get('/liste_users', 'UsersController@getUsers')->name('getUsers');
+Route::post('/liste_users', 'UsersController@postUsers')->name('postUsers');

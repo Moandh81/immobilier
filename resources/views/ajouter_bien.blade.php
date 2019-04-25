@@ -94,12 +94,12 @@
 
 
  <div class="form-group">
-   <label for="photos[]">Example file input</label>
+   <label for="photos[]">Photos :</label>
    <input type="file" class="form-control-file" id="exampleFormControlFile1" name='photos[]' multiple >
  </div>
 
 
-  <button type="submit" class="btn btn-success w-100">Submit</button>
+  <button type="submit" class="btn btn-success w-100">Ajouter</button>
 </form>
 
   </div>
