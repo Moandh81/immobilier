@@ -21,8 +21,7 @@ class TestController extends Controller
         $path = $request->file('fichier')->store('fichiers');
         return $path ;
         return $size;
-        
 
 
-    }
+
 }
