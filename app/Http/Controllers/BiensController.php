@@ -63,12 +63,28 @@ class BiensController extends Controller
     }
 
 
-    public function getListeBiens() {
+    public function getListeBiens(Bien $bien) {
+
 
       $user = Auth::user();
+//      $this->authorize('view', $bien);
 
 
-      $biens = DB::table('biens') ->join('users', 'users.id', '=', 'biens.user_id')->where('users.id' , '=' , $user['id'])->get();
+      if($user->role == 'admin') {
+
+        $biens = DB::table('biens') ->join('users', 'users.id', '=', 'biens.user_id')->get();
+        //->where('users.id' , '=' , $user['id'])->get();
+
+      }
+
+      else {
+
+        $biens = DB::table('biens') ->join('users', 'users.id', '=', 'biens.user_id')
+        ->where('users.id' , '=' , $user['id'])->get();
+
+      }
+
+
 //dd($biens);
 
       return view('liste_biens', compact('biens'));

@@ -12,8 +12,16 @@
 
   <div class="row">
 
+    @if (Auth::user()->role == 'admin')
+
+    <h1 class="mx-auto my-5"> Liste des biens</h1>
+
+    @else
+
     <h1 class="mx-auto my-5"> Liste de vos biens</h1>
 
+
+    @endif
 
   </div>
 
@@ -43,6 +51,7 @@
         </tr>
       </thead>
       <tbody>
+
 
         @foreach($biens as $bien)
         <tr>
@@ -79,6 +88,9 @@
 
 
         @endforeach
+
+
+
       </tbody>
     </table>
 

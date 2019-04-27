@@ -2,20 +2,30 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\User ;
+use Illuminate\Support\Facades\Auth;
+
 
 class UsersController extends Controller
 {
 
     public function getUsers() {
 
+      if(Auth::user()->role == 'admin') {
 
         $users = User::All();
 
 
 
         return view('liste_users', compact('users')) ;
+        }
+
+        else {
+
+            return redirect()->route('home');
+        }
 
     }
 
