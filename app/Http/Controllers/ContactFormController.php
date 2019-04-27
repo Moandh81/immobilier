@@ -24,6 +24,10 @@ class ContactFormController extends Controller
 
      Mail::to($request['email'])->send(new Contact($data));
 
+     return redirect()->route('getContactForm')->with('success', 'Votre message a bien été envoyé.
+      Nous prenons contact avec vous dans les plus brefs délais');
+
+
 
     }
 }

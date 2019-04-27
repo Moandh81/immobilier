@@ -38,9 +38,21 @@
             <a class="nav-link" href="#">About</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline my-2 my-lg-0" method='post' action="{{route('logout')}}">
+
+          @csrf
+
+          @guest
+          <a class="btn btn-outline-primary my-2 mx-2 my-sm-0" href="{{route('login')}}" role="button">Se connecter</a>
+          <a class="btn btn-outline-primary my-2 mx-2 my-sm-0" href="{{route('register')}}" role="button">S'inscrire</a>
+          @endguest
+
+          @auth
+          <p>Bonjour {{Auth::user()->name}} </p>
+          <button type="submit" class="btn btn-primary  mx-2">Se Déconnecter</button>
+
+          @endauth
+
         </form>
       </div>
     </nav>

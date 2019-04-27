@@ -25,6 +25,11 @@
 
             <form class="w-50 mx-auto" method="post" action="{{route('postContactForm')}}">
 
+              @if(Session::has('success'))
+              <div class="alert alert-success alert-dismissible   mx-auto">{{ Session::get('success') }}</div>
+              @endif
+
+
                 @csrf
                 <div class="form-group">
                     <label for="nom">Votre Nom</label>
