@@ -13,7 +13,7 @@ class UsersController extends Controller
 
     public function getUsers() {
 
-      if(Auth::user()->role == 'admin') {
+      if( Auth::check() && Auth::user()->role == 'admin') {
 
         $users = User::All();
 

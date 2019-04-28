@@ -46,7 +46,7 @@ class BiensController extends Controller
               {
 
       for($i = 0 ; $i < count($request->file('photos')) ; $i ++ ) {
-      $path = $request->file('photos')[$i]->store('photos');
+      $path = $request->file('photos')[$i]->store('photos', 'public');
       $photo = DB::table('photos')->insert([
         'bien_id' => $bien_id ,
         'path' => $path
@@ -131,6 +131,24 @@ class BiensController extends Controller
       $bien = Bien::findOrFail($id);
       $bien->delete();
       return redirect()->route('getListeBiens')->with('success', 'La Suppression a été effectuée avec succès');
+
+    }
+
+
+    public function uploaded_photos($id) {
+
+      $bien = Bien::findOrFail($id);
+      $photos = DB::table('photos')->select('path')->where('bien_id', '=' , $id )->get();
+
+//
+// for($i=0 ; $i < count($photos) ; $i++ ){
+//       dump($photos[$i]->path);
+//
+// }
+
+      return view('uploaded_photos', compact('photos'));
+
+
 
     }
 }
